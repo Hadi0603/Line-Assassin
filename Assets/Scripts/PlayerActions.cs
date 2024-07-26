@@ -9,6 +9,7 @@ public class PlayerActions : MonoBehaviour
     public Transform playerTransform = null;
     public float speed = 10f;
     private bool isCollidingWithWall = false;
+    public static bool isRunning = false;
     public float attackRange = 2f;
     public int attackDamage = 10;
     public LayerMask enemyLayer;
@@ -21,6 +22,10 @@ public class PlayerActions : MonoBehaviour
         {
             Attack(enemiesInRange[0].transform);
         }
+        if (distance < minimumDistanceToFollow)
+        {
+            isRunning = false;
+        }
     }
     public void MoveTowardsPath(List<Vector3> list, float time)
     {
@@ -28,6 +33,7 @@ public class PlayerActions : MonoBehaviour
     }
     IEnumerator DelayMoveTowardsPath(List<Vector3> list, float time)
     {
+        isRunning = false;
         isCollidingWithWall = false;
         yield return new WaitForSeconds(time);
         for (int i = 0; i < list.Count; i++)
@@ -37,16 +43,18 @@ public class PlayerActions : MonoBehaviour
             {
                 if (isCollidingWithWall)
                 {
+                    isRunning = false;
                     yield return null;
                     continue;
                 }
                 pos = Vector3.MoveTowards(playerTransform.position, list[i], speed * Time.deltaTime);
-                if (pos.y < 1)
+                if (pos.y < 0.5f)
                 {
-                    pos.y = 1;
+                    pos.y = 0.5f;
                 }
 
                 playerTransform.LookAt(pos);
+                isRunning = true;
                 playerTransform.position = pos;
                 distance = Vector3.Distance(playerTransform.position, list[i]);
 
@@ -64,7 +72,7 @@ public class PlayerActions : MonoBehaviour
     private void Attack(Transform enemy)
     {
         if (isAttacking) return;
-
+        isRunning = false;
         isAttacking = true;
 
         // Attack logic here, for example, reducing enemy health
@@ -97,4 +105,5 @@ public class PlayerActions : MonoBehaviour
             isCollidingWithWall = false;
         }
     }
+    
 }
