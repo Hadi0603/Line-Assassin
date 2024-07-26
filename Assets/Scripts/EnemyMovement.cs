@@ -37,7 +37,10 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] bool takeNewPath;
     [SerializeField] LayerMask targetMask;
     [SerializeField] LayerMask obstructionMask;
-    [SerializeField] float fovAngle = 90f; // Set a fixed field of view angle
+    [SerializeField] float fovAngle = 90f;
+
+    [Header("State Booleans")]
+    public static bool isWalking;
 
     float distanceToTarget = Mathf.Infinity;
 
@@ -88,6 +91,7 @@ public class EnemyMovement : MonoBehaviour
         {
             if (goingRandom)
             {
+                isWalking = true;
                 TakeRandomPath();
                 if (takeNewPath == true)
                 {
@@ -96,7 +100,9 @@ public class EnemyMovement : MonoBehaviour
                 }
             }
             else
+            {
                 StayIdle();
+            }
         }
 
         if (hasDied) { navMeshAgent.SetDestination(transform.position); }
@@ -145,6 +151,7 @@ public class EnemyMovement : MonoBehaviour
             navMeshAgent.speed = randomSpeed;
             newPos = EnemyRandomGen.RandomPath(transform.position, randomPointRadius);
             navMeshAgent.SetDestination(newPos);
+            isWalking = true;
         }
     }
 
