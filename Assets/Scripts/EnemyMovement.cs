@@ -15,7 +15,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float chaseRange = 8;
     [SerializeField] float randomPointRadius = 20;
     [SerializeField] float notificationRange = 12f;
-    [SerializeField] float viewDistance = 15f; // Set a fixed view distance
+    [SerializeField] float viewDistance = 15f; 
 
     [Header("Speeds")]
     [SerializeField] float engageSpeed = 5;
@@ -83,7 +83,6 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            // Reset notification flag when player is not seen
             notifiedNearbyEnemies = false;
         }
 
@@ -91,7 +90,6 @@ public class EnemyMovement : MonoBehaviour
         {
             if (goingRandom)
             {
-                isWalking = true;
                 TakeRandomPath();
                 if (takeNewPath == true)
                 {
@@ -101,6 +99,7 @@ public class EnemyMovement : MonoBehaviour
             }
             else
             {
+                isWalking = false;
                 StayIdle();
             }
         }
@@ -116,8 +115,6 @@ public class EnemyMovement : MonoBehaviour
     void NotifyNearbyEnemies()
     {
         List<EnemyMovement> enemiesToNotify = new List<EnemyMovement>(allEnemies);
-
-        // Find nearby enemies to notify
         foreach (EnemyMovement enemy in enemiesToNotify)
         {
             if (enemy == null || enemy == this || enemy.notifiedNearbyEnemies)
@@ -130,7 +127,6 @@ public class EnemyMovement : MonoBehaviour
             }
         }
 
-        // Mark this enemy as notified
         notifiedNearbyEnemies = true;
     }
 
@@ -141,6 +137,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void StayIdle()
     {
+        isWalking = false;
         navMeshAgent.SetDestination(transform.position);
     }
 
@@ -148,10 +145,10 @@ public class EnemyMovement : MonoBehaviour
     {
         if (Vector3.Distance(newPos, transform.position) <= navMeshAgent.stoppingDistance)
         {
+            isWalking = true;
             navMeshAgent.speed = randomSpeed;
             newPos = EnemyRandomGen.RandomPath(transform.position, randomPointRadius);
             navMeshAgent.SetDestination(newPos);
-            isWalking = true;
         }
     }
 
