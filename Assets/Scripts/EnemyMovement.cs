@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,7 +41,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float fovAngle = 90f;
 
     [Header("State Booleans")]
-    public static bool isWalking;
+    public static bool isWalking = false;
+    public static bool isShooting = false;
 
     float distanceToTarget = Mathf.Infinity;
 
@@ -103,6 +105,14 @@ public class EnemyMovement : MonoBehaviour
                 StayIdle();
             }
         }
+        if (isWalking == true)
+        {
+            Debug.Log("is walking");
+        }
+        if(isShooting == true)
+        {
+            Debug.Log("is shooting");
+        }
 
         if (hasDied) { navMeshAgent.SetDestination(transform.position); }
     }
@@ -137,12 +147,14 @@ public class EnemyMovement : MonoBehaviour
 
     private void StayIdle()
     {
+        isShooting = false;
         isWalking = false;
         navMeshAgent.SetDestination(transform.position);
     }
 
     private void TakeRandomPath()
     {
+        isShooting = false;
         if (Vector3.Distance(newPos, transform.position) <= navMeshAgent.stoppingDistance)
         {
             isWalking = true;
@@ -172,6 +184,8 @@ public class EnemyMovement : MonoBehaviour
 
     public void ChasePlayer()
     {
+        isShooting = false;
+        isWalking = true;
         navMeshAgent.speed = engageSpeed;
         navMeshAgent.SetDestination(player.transform.position);
         hasSeen = true;
@@ -179,6 +193,8 @@ public class EnemyMovement : MonoBehaviour
 
     private void AttackPlayer()
     {
+        isWalking = false;
+        isShooting = true;
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
         if (bullet != null)
