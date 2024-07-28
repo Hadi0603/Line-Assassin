@@ -101,17 +101,8 @@ public class EnemyMovement : MonoBehaviour
             }
             else
             {
-                isWalking = false;
                 StayIdle();
             }
-        }
-        if (isWalking == true)
-        {
-            Debug.Log("is walking");
-        }
-        if(isShooting == true)
-        {
-            Debug.Log("is shooting");
         }
 
         if (hasDied) { navMeshAgent.SetDestination(transform.position); }
@@ -161,6 +152,10 @@ public class EnemyMovement : MonoBehaviour
             navMeshAgent.speed = randomSpeed;
             newPos = EnemyRandomGen.RandomPath(transform.position, randomPointRadius);
             navMeshAgent.SetDestination(newPos);
+        }
+        else
+        {
+            isWalking = false;
         }
     }
 
