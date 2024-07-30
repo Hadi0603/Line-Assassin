@@ -44,6 +44,9 @@ public class EnemyMovement : MonoBehaviour
     public static bool isWalking = false;
     public static bool isShooting = false;
 
+    [Header("Sound")]
+    [SerializeField] AudioSource attackSound;
+
     float distanceToTarget = Mathf.Infinity;
 
     NavMeshAgent navMeshAgent;
@@ -113,7 +116,7 @@ public class EnemyMovement : MonoBehaviour
         CreateFOV();
     }
 
-    void NotifyNearbyEnemies()
+    public void NotifyNearbyEnemies()
     {
         List<EnemyMovement> enemiesToNotify = new List<EnemyMovement>(allEnemies);
         foreach (EnemyMovement enemy in enemiesToNotify)
@@ -190,6 +193,7 @@ public class EnemyMovement : MonoBehaviour
     {
         isWalking = false;
         isShooting = true;
+        attackSound.Play();
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
         if (bullet != null)
