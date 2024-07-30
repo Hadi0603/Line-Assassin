@@ -15,6 +15,7 @@ public class PlayerActions : MonoBehaviour
     public LayerMask enemyLayer;
     public static bool isAttacking = false;
     private Vector3 pos;
+    public AudioSource attackSound;
     public void Update()
     {
         Collider[] enemiesInRange = Physics.OverlapSphere(playerTransform.position, attackRange, enemyLayer);
@@ -72,6 +73,7 @@ public class PlayerActions : MonoBehaviour
     private void Attack(Transform enemy)
     {
         if (isAttacking) return;
+        attackSound.Play();
         isRunning = false;
         isAttacking = true;
 
