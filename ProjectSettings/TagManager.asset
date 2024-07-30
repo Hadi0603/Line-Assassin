@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Collectable
+  - Star
   layers:
   - Default
   - TransparentFX
