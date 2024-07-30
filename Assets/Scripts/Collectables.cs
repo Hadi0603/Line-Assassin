@@ -5,21 +5,18 @@ using UnityEngine;
 public class Collectables : MonoBehaviour
 {
     private bool isCollecting;
-    // Start is called before the first frame update
     void Start()
     {
         isCollecting = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            if (this.CompareTag("Star"))
+            {
+                LevelStats.starCollected++;
+            }
             isCollecting = true;
             Destroy(gameObject);
         }
