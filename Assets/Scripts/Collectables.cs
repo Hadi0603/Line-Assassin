@@ -17,6 +17,10 @@ public class Collectables : MonoBehaviour
             {
                 LevelStats.starCollected++;
             }
+            if (this.CompareTag("Diamond"))
+            {
+                LevelStats.diamondCollected++;
+            }
             isCollecting = true;
             Destroy(gameObject);
         }
