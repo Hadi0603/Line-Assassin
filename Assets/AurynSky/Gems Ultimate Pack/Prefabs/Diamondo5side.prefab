@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2684472054513441573}
   m_Layer: 0
   m_Name: Diamondo5side
-  m_TagString: Collectable
+  m_TagString: Diamond
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
