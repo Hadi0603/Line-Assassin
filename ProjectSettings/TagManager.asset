@@ -7,6 +7,7 @@ TagManager:
   - Wall
   - Collectable
   - Star
+  - Diamond
   layers:
   - Default
   - TransparentFX
