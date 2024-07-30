@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 764300139142989887}
   m_Layer: 0
   m_Name: Diamondo
-  m_TagString: Collectable
+  m_TagString: Diamond
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
