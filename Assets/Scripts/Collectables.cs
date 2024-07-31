@@ -21,6 +21,10 @@ public class Collectables : MonoBehaviour
             {
                 LevelStats.diamondCollected++;
             }
+            if (this.CompareTag("Heart"))
+            {
+                PlayerStats.health += 50;
+            }
             isCollecting = true;
             Destroy(gameObject);
         }
