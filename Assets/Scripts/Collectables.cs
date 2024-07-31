@@ -16,10 +16,12 @@ public class Collectables : MonoBehaviour
             if (this.CompareTag("Star"))
             {
                 LevelStats.starCollected++;
+                MainMenu.star++;
             }
             if (this.CompareTag("Diamond"))
             {
                 LevelStats.diamondCollected++;
+                MainMenu.diamond++;
             }
             if (this.CompareTag("Heart"))
             {
