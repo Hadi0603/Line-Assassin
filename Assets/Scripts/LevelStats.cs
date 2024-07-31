@@ -5,14 +5,15 @@ using UnityEngine.UI;
 
 public class LevelStats : MonoBehaviour
 {
-    [SerializeField] Text enemyCount;
+    [SerializeField] public Text enemyCount;
     [SerializeField] int totalEnemy;
-    [SerializeField] Text healthCount;
-    [SerializeField] Text starCount;
+    [SerializeField] public Text healthCount;
+    [SerializeField] public Text starCount;
     [SerializeField] int totalStar;
     [SerializeField] int totalDiamond;
-    [SerializeField] Text diamondCount;
+    [SerializeField] public Text diamondCount;
     [SerializeField] GameObject levelCompleteUI;
+    [SerializeField] GameObject gameOverUI;
     public static int enemiesKilled;
     public static int starCollected;
     public static int diamondCollected;
@@ -27,18 +28,22 @@ public class LevelStats : MonoBehaviour
     void Update()
     {
         enemyCount.text = enemiesKilled.ToString() + "/" + totalEnemy.ToString();
-        LevelResult.enemyText.text = enemyCount.text;
         healthCount.text = PlayerStats.health.ToString();
-        LevelResult.healthText.text = healthCount.text;
         starCount.text = starCollected.ToString() + "/" + totalStar.ToString();
-        LevelResult.starText.text = starCollected.ToString();
         diamondCount.text=diamondCollected.ToString()+"/"+totalDiamond.ToString();
-        LevelResult.diamondText.text = diamondCount.text;
+        if (PlayerStats.health <= 0)
+        {
+            gameOverUI.SetActive(true);
+        }
+        if (PlayerStats.health > 0)
+        {
+            gameOverUI.SetActive(false);
+        }
         if (enemiesKilled == totalEnemy)
         {
             levelCompleteUI.SetActive(true);
         }
-        else
+        if (enemiesKilled < totalEnemy)
         {
             levelCompleteUI.SetActive(false);
         }
