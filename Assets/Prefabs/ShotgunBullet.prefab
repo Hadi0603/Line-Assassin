@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9181338232799278406}
   - component: {fileID: 8440235392747209062}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: ShotgunBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,5 +119,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impactEffect: {fileID: 6127367800872840094, guid: 8ce6a864f459e1748b388c5fc11876a6, type: 3}
-  speed: 30
+  speed: 40
   explosionRadius: 0
+  damage: 35

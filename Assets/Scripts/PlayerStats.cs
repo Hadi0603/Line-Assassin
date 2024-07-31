@@ -12,9 +12,9 @@ public class PlayerStats : MonoBehaviour
     {
         health = startHealth;
     }
-    public void TakeDamage()
+    public void TakeDamage(int damage)
     {
-        health -= Bullet.damage;
+        health -= damage;
         if (health <= 0 && !isDead)
         {
             Die();

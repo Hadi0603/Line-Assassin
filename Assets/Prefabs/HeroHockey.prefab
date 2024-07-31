@@ -519,7 +519,7 @@ MonoBehaviour:
   playerTransform: {fileID: 3154285092433828186}
   speed: 10
   attackRange: 0.1
-  attackDamage: 100
+  attackDamage: 130
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512

@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     public GameObject impactEffect;
     public float speed = 70f;
     public float explosionRadius = 0;
-    public static int damage = 20;
+    [SerializeField] public int damage = 20;
     public void Seek(Transform _target)
     {
         target = _target;
@@ -39,12 +39,18 @@ public class Bullet : MonoBehaviour
 
         Destroy(gameObject);
     }
-    
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Wall"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     void Damage(Transform player)
     {
         PlayerStats hero = player.GetComponent<PlayerStats>();
-        hero.TakeDamage();
+        hero.TakeDamage(damage);
     }
     void OnDrawGizmosSelected()
     {
