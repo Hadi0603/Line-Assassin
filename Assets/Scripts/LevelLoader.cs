@@ -10,7 +10,6 @@ public class LevelLoader : MonoBehaviour
     public Slider slider;
     public Text progressText;
     public int sceneIndex;
-    // Start is called before the first frame update
     void Start()
     {
         loadLevel(sceneIndex);
@@ -30,11 +29,6 @@ public class LevelLoader : MonoBehaviour
             progressText.text = progress * 100 + "%";
             yield return null;
         }
-        
-    }
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 }
