@@ -9,6 +9,7 @@ TagManager:
   - Star
   - Diamond
   - Heart
+  - Bullet
   layers:
   - Default
   - TransparentFX
