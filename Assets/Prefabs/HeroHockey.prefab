@@ -517,7 +517,7 @@ MonoBehaviour:
   minimumDistanceToFollow: 0.1
   distance: 0
   playerTransform: {fileID: 3154285092433828186}
-  speed: 10
+  speed: 12.5
   attackRange: 0.1
   attackDamage: 130
   enemyLayer:
