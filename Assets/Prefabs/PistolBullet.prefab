@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8440235392747209062}
   m_Layer: 0
   m_Name: PistolBullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,3 +121,4 @@ MonoBehaviour:
   impactEffect: {fileID: 6127367800872840094, guid: 8ce6a864f459e1748b388c5fc11876a6, type: 3}
   speed: 30
   explosionRadius: 0
+  damage: 20
