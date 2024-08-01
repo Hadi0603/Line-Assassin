@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class NextButton : MonoBehaviour
 {
+    [SerializeField] string levelName;
     public void Next()
     {
-        SceneManager.LoadScene("Level2");
+        SceneManager.LoadScene(levelName);
     }
 }
