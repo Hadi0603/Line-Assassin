@@ -233,10 +233,23 @@ public class EnemyMovement : MonoBehaviour
             if (Vector3.Angle(transform.forward, direction) < fovAngle / 2)
             {
                 float distance = Vector3.Distance(transform.position, target.position);
+                Vector3 raycastOrigin = transform.position + Vector3.up * 1f; 
 
-                if (!Physics.Raycast(transform.position, direction, distance, obstructionMask))
+                RaycastHit hit;
+                if (Physics.Raycast(raycastOrigin, direction, out hit, distance))
                 {
-                    canSeePlayer = true;
+                    if (hit.transform == target)
+                    {
+                        canSeePlayer = true;
+                    }
+                    else if (hit.transform.CompareTag("Wall"))
+                    {
+                        canSeePlayer = false;
+                    }
+                    else
+                    {
+                        canSeePlayer = false;
+                    }
                 }
                 else
                 {
@@ -253,6 +266,7 @@ public class EnemyMovement : MonoBehaviour
             canSeePlayer = false;
         }
     }
+
 
     private void OnDrawGizmosSelected()
     {
