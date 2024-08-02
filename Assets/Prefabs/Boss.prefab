@@ -735,7 +735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8995c19b3a431b24badf064a5bef0bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 300
+  health: 600
   attackEffect: {fileID: 6127367800872840094, guid: b890a5d8b917b6f49853a184d9a6b699, type: 3}
 --- !u!114 &5548018030789959206
 MonoBehaviour:
@@ -759,9 +759,9 @@ MonoBehaviour:
   canSeePlayer: 0
   hasSeen: 0
   hasDied: 0
-  bulletPrefab: {fileID: 8282368710677398128, guid: 3326d83a2d3ea3745b586db2b6ab73c9, type: 3}
+  bulletPrefab: {fileID: 8282368710677398128, guid: 3dd68eca483584d46a97276d01fac801, type: 3}
   firePoint: {fileID: 3143580965007759407}
-  fireRate: 0.3
+  fireRate: 0.5
   goingRandom: 1
   takeNewPath: 0
   targetMask:
