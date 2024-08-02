@@ -233,7 +233,7 @@ public class EnemyMovement : MonoBehaviour
             if (Vector3.Angle(transform.forward, direction) < fovAngle / 2)
             {
                 float distance = Vector3.Distance(transform.position, target.position);
-                Vector3 raycastOrigin = transform.position + Vector3.up * 1f; 
+                Vector3 raycastOrigin = transform.position + Vector3.up * 0.5f; 
 
                 RaycastHit hit;
                 if (Physics.Raycast(raycastOrigin, direction, out hit, distance))
