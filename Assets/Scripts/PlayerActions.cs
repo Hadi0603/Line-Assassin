@@ -89,7 +89,7 @@ public class PlayerActions : MonoBehaviour
     }
     IEnumerator AttackCooldown()
     {
-        yield return new WaitForSeconds(0.1f); // Adjust cooldown as needed
+        yield return new WaitForSeconds(1f); // Adjust cooldown as needed
         isAttacking = false;
     }
     
