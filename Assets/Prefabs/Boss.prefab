@@ -749,7 +749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b0a45e768052e843835fa71e29eea11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 544265787649483994, guid: c734694a81b9b9f4798368288b7d65ba, type: 3}
+  player: {fileID: 3154285092433828186, guid: 9b8fe683fe0bf324399e1cda1eef1c4d, type: 3}
   chaseRange: 8
   randomPointRadius: 10
   notificationRange: 7
@@ -770,7 +770,7 @@ MonoBehaviour:
   obstructionMask:
     serializedVersion: 2
     m_Bits: 0
-  fovAngle: 70
+  fovAngle: 90
   attackSound: {fileID: 4403107976346403147}
 --- !u!95 &5439326970233270354
 Animator:
