@@ -1365,7 +1365,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6582683d9da4bd84ba1001900fc4a95c, type: 2}
+  - {fileID: 2100000, guid: b15ad723ddb9f0f4eb21a0ec756d4fbc, type: 2}
   - {fileID: 2100000, guid: 6582683d9da4bd84ba1001900fc4a95c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -2078,7 +2078,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 02cab58f13c33384ba7dca18b0b33692, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 99afe99139cd244469fd1b0e84f38dbf, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
