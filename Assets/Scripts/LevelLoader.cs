@@ -1,34 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 
 public class LevelLoader : MonoBehaviour
 {
-    public GameObject loadingScreen;
-    public Slider slider;
-    public Text progressText;
-    public int sceneIndex;
+    [SerializeField] GameObject loadingScreen;
+    [SerializeField] Slider slider;
+    [SerializeField] Text progressText;
+    [SerializeField] int nextSceneIndex;
+    [SerializeField] float loadDuration = 5f;
+    private float elapsedTime = 0f;
     void Start()
     {
-        loadLevel(sceneIndex);
-    }
-    public void loadLevel(int sceneIndex)
-    {
-        StartCoroutine(LoadAsynchronously(sceneIndex));
-    }
-    IEnumerator LoadAsynchronously(int sceneIndex)
-    {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
         loadingScreen.SetActive(true);
-        while (!operation.isDone)
+        StartCoroutine(LoadLevel());
+    }
+    IEnumerator LoadLevel()
+    {
+        while (elapsedTime < loadDuration)
         {
-            float progress = Mathf.Clamp01(operation.progress / .9f);
+            elapsedTime += Time.deltaTime;
+            float progress = Mathf.Clamp01(elapsedTime / loadDuration);
             slider.value = progress;
-            progressText.text = progress * 100 + "%";
+            progressText.text = (progress * 100).ToString("F0") + "%";
+
             yield return null;
         }
-        
+        SceneManager.LoadScene(nextSceneIndex);
     }
 }
