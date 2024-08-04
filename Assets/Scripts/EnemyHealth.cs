@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int health = 100;
+    public float health = 100f;
     private EnemyMovement enemy;
     [SerializeField] GameObject attackEffect;
     private void Start()
