@@ -6,24 +6,42 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pauseUI;
+    private DrawLines drawLinesScript;
+    private void Start()
+    {
+        drawLinesScript=FindAnyObjectByType<DrawLines>();
+    }
     public void Pause()
     {
-        pauseUI.SetActive(true);
-        Time.timeScale = 0f;
+        if (drawLinesScript != null)
+        {
+            pauseUI.SetActive(true);
+            Time.timeScale = 0f;
+            drawLinesScript.enabled = false;
+        }
     }
     public void Continue()
     {
-        Time.timeScale = 1f;
-        pauseUI.SetActive(false);
+        if (drawLinesScript != null)
+        {
+            Time.timeScale = 1f;
+            pauseUI.SetActive(false);
+            drawLinesScript.enabled = true;
+        }
     }
     public void Retry()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (drawLinesScript != null)
+        {
+            Time.timeScale = 1f;
+            drawLinesScript.enabled = true;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
     public void Menu()
     {
         Time.timeScale = 1f;
+        drawLinesScript.enabled = true;
         SceneManager.LoadScene("MainMenu");
     }
 }
