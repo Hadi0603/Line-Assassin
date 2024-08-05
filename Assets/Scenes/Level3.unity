@@ -10493,10 +10493,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3ae8c53f05d2a409ba180bd0a51a25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyText: {fileID: 898470301}
-  healthText: {fileID: 898470300}
-  starText: {fileID: 898470299}
-  diamondText: {fileID: 898470298}
+  enemyText: {fileID: 1442070553}
+  healthText: {fileID: 1809222530}
+  starText: {fileID: 936952255}
+  diamondText: {fileID: 38131765}
+  SceneName: LevelSelect
+  levelToUnlock: 5
 --- !u!114 &1882573393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10509,10 +10511,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9ab90e13979004c9d4fceb1805dd24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyText: {fileID: 898470301}
-  healthText: {fileID: 898470300}
-  starText: {fileID: 898470299}
-  diamondText: {fileID: 898470298}
+  enemyText: {fileID: 1507905520}
+  healthText: {fileID: 339527570}
+  starText: {fileID: 707452869}
+  diamondText: {fileID: 1571267692}
 --- !u!114 &1882573394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10525,7 +10527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7fda0a243fc1f4d92f0f6db936eb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: Level4
+  levelName: Load4
 --- !u!1001 &1888571616
 PrefabInstance:
   m_ObjectHideFlags: 0
