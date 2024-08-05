@@ -7,7 +7,8 @@ public class PlayerActions : MonoBehaviour
     public float minimumDistanceToFollow = 0.1f;
     public float distance = 0;
     public Transform playerTransform = null;
-    public float speed = 10f;
+    public float startSpeed = 10f;
+    public static float speed;
     private bool isCollidingWithWall = false;
     public static bool isRunning = false;
     public float attackRange = 2f;
@@ -16,6 +17,10 @@ public class PlayerActions : MonoBehaviour
     public static bool isAttacking = false;
     private Vector3 pos;
     public AudioSource attackSound;
+    private void Start()
+    {
+        speed = startSpeed;
+    }
     public void Update()
     {
         Collider[] enemiesInRange = Physics.OverlapSphere(playerTransform.position, attackRange, enemyLayer);
@@ -58,8 +63,6 @@ public class PlayerActions : MonoBehaviour
                 isRunning = true;
                 playerTransform.position = pos;
                 distance = Vector3.Distance(playerTransform.position, list[i]);
-
-                // Check for enemies in attack range and attack if found
                 Collider[] enemiesInRange = Physics.OverlapSphere(playerTransform.position, attackRange, enemyLayer);
                 if (enemiesInRange.Length > 0)
                 {
@@ -76,20 +79,17 @@ public class PlayerActions : MonoBehaviour
         attackSound.Play();
         isRunning = false;
         isAttacking = true;
-
-        // Attack logic here, for example, reducing enemy health
         EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
         if (enemyHealth != null)
         {
             enemyHealth.TakeDamage(attackDamage);
         }
 
-        // You can add a delay here to simulate attack duration
         StartCoroutine(AttackCooldown());
     }
     IEnumerator AttackCooldown()
     {
-        yield return new WaitForSeconds(1f); // Adjust cooldown as needed
+        yield return new WaitForSeconds(1f);
         isAttacking = false;
     }
     
