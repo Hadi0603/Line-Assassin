@@ -16,14 +16,11 @@ public class Collectables : MonoBehaviour
             if (this.CompareTag("Star"))
             {
                 LevelStats.starCollected++;
-                MainMenu.star++;
-                PlayerPrefs.SetInt("star", MainMenu.star);
             }
             if (this.CompareTag("Diamond"))
             {
                 LevelStats.diamondCollected++;
-                MainMenu.diamond++;
-                PlayerPrefs.SetInt("diamond", MainMenu.diamond);
+                PlayerActions.speed += 2f;
             }
             if (this.CompareTag("Heart"))
             {
