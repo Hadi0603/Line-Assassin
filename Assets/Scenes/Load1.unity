@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 585f185f49bca294b8d1fae1d8aa5d74, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 72b042a44d955b849a876fd69d15c966, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -852,7 +852,7 @@ MonoBehaviour:
   loadingScreen: {fileID: 621675536}
   slider: {fileID: 1074295098}
   progressText: {fileID: 1969135004}
-  nextSceneIndex: 2
+  nextScene: Level1
   loadDuration: 6.5
 --- !u!1 &1712088458
 GameObject:
