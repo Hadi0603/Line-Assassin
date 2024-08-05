@@ -14,6 +14,7 @@ public class LevelStats : MonoBehaviour
     [SerializeField] public Text diamondCount;
     [SerializeField] GameObject levelCompleteUI;
     [SerializeField] GameObject gameOverUI;
+    public int levelToUnlock;
     public static int enemiesKilled;
     public static int starCollected;
     public static int diamondCollected;
@@ -42,6 +43,7 @@ public class LevelStats : MonoBehaviour
         if (enemiesKilled == totalEnemy)
         {
             levelCompleteUI.SetActive(true);
+            PlayerPrefs.SetInt("levelReached", levelToUnlock);
         }
         if (enemiesKilled < totalEnemy)
         {
