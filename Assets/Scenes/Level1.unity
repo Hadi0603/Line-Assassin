@@ -11308,6 +11308,8 @@ MonoBehaviour:
   healthText: {fileID: 1809222530}
   starText: {fileID: 936952255}
   diamondText: {fileID: 38131765}
+  SceneName: LevelSelect
+  levelToUnlock: 3
 --- !u!114 &1882573393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11336,7 +11338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7fda0a243fc1f4d92f0f6db936eb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: Load1
+  levelName: Load2
 --- !u!1001 &1888571616
 PrefabInstance:
   m_ObjectHideFlags: 0
