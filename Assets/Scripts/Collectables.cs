@@ -17,17 +17,20 @@ public class Collectables : MonoBehaviour
             {
                 LevelStats.starCollected++;
                 MainMenu.star++;
+                PlayerPrefs.SetInt("star", MainMenu.star);
             }
             if (this.CompareTag("Diamond"))
             {
                 LevelStats.diamondCollected++;
                 MainMenu.diamond++;
+                PlayerPrefs.SetInt("diamond", MainMenu.diamond);
             }
             if (this.CompareTag("Heart"))
             {
                 PlayerStats.health += 50;
             }
             isCollecting = true;
+            SaveProgress();
             Destroy(gameObject);
         }
     }
@@ -37,5 +40,9 @@ public class Collectables : MonoBehaviour
         {
             isCollecting = false;
         }
+    }
+    private void SaveProgress()
+    {
+        PlayerPrefs.Save();
     }
 }
