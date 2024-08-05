@@ -8,7 +8,7 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] GameObject loadingScreen;
     [SerializeField] Slider slider;
     [SerializeField] Text progressText;
-    [SerializeField] int nextSceneIndex;
+    [SerializeField] string nextScene;
     [SerializeField] float loadDuration = 5f;
     private float elapsedTime = 0f;
     void Start()
@@ -27,6 +27,6 @@ public class LevelLoader : MonoBehaviour
 
             yield return null;
         }
-        SceneManager.LoadScene(nextSceneIndex);
+        SceneManager.LoadScene(nextScene);
     }
 }
