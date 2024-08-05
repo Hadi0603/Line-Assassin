@@ -10,6 +10,16 @@ public class LevelResult : MonoBehaviour
     [SerializeField] Text healthText;
     [SerializeField] Text starText;
     [SerializeField] Text diamondText;
+    public string SceneName = "LevelSelect";
+    public int levelToUnlock;
+    private void OnEnable()
+    {
+        if (levelToUnlock > PlayerPrefs.GetInt("levelReached", 1))
+        {
+            PlayerPrefs.SetInt("levelReached", levelToUnlock);
+        }
+        
+    }
     private void Update()
     {
         stats = GetComponent<LevelStats>();
