@@ -523,7 +523,7 @@ MonoBehaviour:
   minimumDistanceToFollow: 0.1
   distance: 0
   playerTransform: {fileID: 544265787649483994}
-  speed: 10
+  startSpeed: 10
   attackRange: 0.1
   attackDamage: 100
   enemyLayer:
@@ -562,10 +562,10 @@ CapsuleCollider:
   m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.3129921
+  m_Radius: 0.18956876
   m_Height: 2.0859053
   m_Direction: 1
-  m_Center: {x: -0.0044965744, y: 0.8305155, z: 0}
+  m_Center: {x: 0.009781122, y: 0.8305155, z: 0}
 --- !u!114 &3575134643447430802
 MonoBehaviour:
   m_ObjectHideFlags: 0
