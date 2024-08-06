@@ -892,7 +892,7 @@ MonoBehaviour:
   notificationRange: 7
   viewDistance: 5
   engageSpeed: 5
-  randomSpeed: 4
+  randomSpeed: 2
   canSeePlayer: 0
   hasSeen: 0
   hasDied: 0
