@@ -43,7 +43,10 @@ public class LevelStats : MonoBehaviour
         if (enemiesKilled == totalEnemy)
         {
             levelCompleteUI.SetActive(true);
-            PlayerPrefs.SetInt("levelReached", levelToUnlock);
+            if (levelToUnlock > PlayerPrefs.GetInt("levelReached"))
+            {
+                PlayerPrefs.SetInt("levelReached", levelToUnlock);
+            }
         }
         if (enemiesKilled < totalEnemy)
         {
