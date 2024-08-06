@@ -24,7 +24,6 @@ public class LevelStats : MonoBehaviour
         starCollected = 0;
         diamondCollected= 0;
         levelCompleteUI.SetActive(false);
-        Time.timeScale = 1f;
     }
     void Update()
     {
